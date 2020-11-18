@@ -1,4 +1,5 @@
 ﻿using System;
+using Raylib_cs;
 
 namespace Game
 {
@@ -6,7 +7,7 @@ namespace Game
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+            Raylib.InitWindow(800, 600, "")
         }
     }
 }
