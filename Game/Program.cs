@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using Raylib_cs;
 
 namespace Game
@@ -55,7 +55,7 @@ int x = 0;
                 {
                     if (x == 0)
                     {
-                        InitiateGame();
+                        Game();
                     }
                     else
                     {
@@ -68,17 +68,27 @@ int x = 0;
 
         }
 
-        static void InitiateGame()
+        public static void Game()
         {
-            Console.Clear();
+            //WINDOW PROPERTIES
+                //Window width
+                int windowW = 1280;
 
-            Raylib.InitWindow(800, 600, "Ball Bouncer");
-            Raylib.SetTargetFPS(60);
+                //Window height
+                int windowH = 720;
 
+                //Window creation
+                Raylib.InitWindow(windowW, windowH, "Ball Bouncer");
 
+                //Background color
+                Color backgroundColor = new Color(0, 0, 0, 0);
 
-            
+                //Target FPS
+                Raylib.SetTargetFPS(60);
 
+                GameObject rightPaddle = new BouncerBlock((windowW/2), windowH-50, KeyboardKey.KEY_LEFT, KeyboardKey.KEY_RIGHT);
+
+        
             while (!Raylib.WindowShouldClose())
             {
                 // if all balls are out then 
@@ -87,8 +97,10 @@ int x = 0;
                 Raylib.WindowShouldClose();
 
                 Raylib.BeginDrawing();
+                
+                GameObject.DrawAll();
 
-                Raylib.ClearBackground(Color.BLACK);
+                Raylib.ClearBackground(backgroundColor);
 
                 Raylib.EndDrawing();
 
@@ -103,8 +115,10 @@ int x = 0;
             // {
             //     YouWin()
             // }
-
+        
         }
+
+        
 
         static void GameOver()
         {
