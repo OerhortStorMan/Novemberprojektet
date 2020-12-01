@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using Raylib_cs;
 
 namespace Game
@@ -73,6 +73,11 @@ int x = 0;
             Console.Clear();
 
             Raylib.InitWindow(800, 600, "Ball Bouncer");
+            Raylib.SetTargetFPS(60);
+
+
+
+            
 
             while (!Raylib.WindowShouldClose())
             {
